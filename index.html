@@ -225,16 +225,16 @@
     </div>
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-
   const urlParams = new URLSearchParams(window.location.search);
-  const sourceValue = urlParams.get('source') || 'test';
+  const sourceValue = urlParams.get('source'); 
 
-
-  document.querySelectorAll('a.btn-download').forEach(botao => {
-    const urlOriginal = botao.href;
-    const separador = urlOriginal.includes('?') ? '&' : '?';
-    botao.href = `${urlOriginal}${separador}source=${encodeURIComponent(sourceValue)}`;
-  });
+  if(sourceValue) {
+    document.querySelectorAll('a.btn-download').forEach(botao => {
+      const urlOriginal = botao.href;
+      const separador = urlOriginal.includes('?') ? '&' : '?';
+      botao.href = `${urlOriginal}${separador}source=${encodeURIComponent(sourceValue)}`;
+    });
+  }
 });
 </script>
     <script src="js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script>
